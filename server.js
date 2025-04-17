@@ -7,12 +7,12 @@ const port = 3000;
 
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.zoho.eu",
-    port: 465,
-    secure: true,
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // use false for STARTTLS; true for SSL on port 465
     auth: {
-        user: 'rotbartsemen@zohomail.eu',
-        pass: 'Parol2017'
+        user: 'awanspinczow2@gmail.com',
+        pass: 'aovd fffr kcpi vmkp',
     }
 });
 
@@ -23,8 +23,9 @@ app.use(express.json());
 app.post('/send',async (req, res)  => {
     res.json({ message: `Dane odebrane: ${req.body['first-name']} ${req.body['last-name']}` });
     const info = await transporter.sendMail({
-        from: 'rotbartsemen@zohomail.eu', // sender address
-        to:`rotbartsemen@zohomail.eu` ,
+        from: 'awanspinczow2@gmail.com',
+        to:`awanspinczow2@gmail.com` ,
+        subject: 'Potwierdzenie Rezerwacji',
         text: "Hello world?", // plain text body
         html: `
     <html lang="en">

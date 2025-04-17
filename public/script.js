@@ -13,8 +13,12 @@ document.getElementById("registration-form").addEventListener("submit", async fu
             body: JSON.stringify(data),
         });
 
-        const result = await response.json();
-        console.log("Odpowiedź serwera:", result.message);
+        if (response.ok) {
+            let ms=document.getElementById('message1');
+            ms.classList.add('success');
+        }
+
+        // console.log("Odpowiedź serwera:", result.message ) ;
     } catch (error) {
         console.error("Błąd przy wysyłaniu formularza:", error);
     }
